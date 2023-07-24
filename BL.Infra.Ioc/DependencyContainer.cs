@@ -20,6 +20,11 @@ namespace BL.Infra.Ioc
             services.AddTransient<IGenericRepository<BE>, GenericRepository<BE>>();
             services.AddTransient<IGenericRepository<BLs>, GenericRepository<BLs>>();
             services.AddTransient<IGenericRepository<Client>, GenericRepository<Client>>();
+            services.AddTransient<IGenericRepository<Chauffeur>, GenericRepository<Chauffeur>>();
+            services.AddTransient<IGenericRepository<Vehicule>, GenericRepository<Vehicule>>();
+
+            services.AddTransient<IGenericRepository<Client>, GenericRepository<Client>>();
+
             services.AddTransient<IGenericRepository<Domain.Models.Article>, GenericRepository<Domain.Models.Article>>();
 
 

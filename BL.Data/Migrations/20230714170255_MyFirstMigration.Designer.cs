@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BL.Data.Migrations
 {
     [DbContext(typeof(BLContext))]
-    [Migration("20230427211450_MyFirstMigration")]
+    [Migration("20230714170255_MyFirstMigration")]
     partial class MyFirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,11 +97,11 @@ namespace BL.Data.Migrations
                     b.Property<string>("Chauffeur")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DateBE")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DateBE")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("DateLivraison")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateLivraison")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("NumBE")
                         .HasColumnType("int");

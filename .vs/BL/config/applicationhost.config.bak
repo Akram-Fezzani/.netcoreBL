@@ -152,7 +152,7 @@
           <virtualDirectory path="/" physicalPath="%IIS_SITES_HOME%\WebSite1" />
         </application>
         <bindings>
-          <binding protocol="http" bindingInformation=":8080:localhost" />
+          <binding protocol="http" bindingInformation=":8080:localhost" />z
         </bindings>
       </site>
       <site name="BL.Api" id="2">
@@ -161,7 +161,7 @@
         </application>
         <bindings>
           <binding protocol="http" bindingInformation="*:38780:localhost" />
-                    <binding protocol="https" bindingInformation="*:44358:localhost" />
+                    <binding protocol="https" bindingInformation="*:44357:localhost" />
         </bindings>
       </site>
       <siteDefaults>

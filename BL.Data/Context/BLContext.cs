@@ -19,7 +19,9 @@ namespace BL.Data.Context
         public DbSet<Client> Clients { get; set; }
         public DbSet<Article> Articles { get; set; }
         public DbSet<BLs> BLs { get; set; }
+        public DbSet<Vehicule> Vehicules { get; set; }
 
+        public DbSet<Chauffeur> Chauffeurs { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,12 +30,14 @@ namespace BL.Data.Context
             modelBuilder.Entity<Client>().HasKey(sc => new { sc.ClientId });
             modelBuilder.Entity<BLs>().HasKey(sc => new { sc.BLId });
             modelBuilder.Entity<Article>().HasKey(sc => new { sc.ArticleId });
+            modelBuilder.Entity<Vehicule>().HasKey(sc => new { sc.VehiculeId });
+            modelBuilder.Entity<Chauffeur>().HasKey(sc => new { sc.ChauffeurId });
 
 
 
 
 
-          
+
 
             modelBuilder.Entity<BE>()
                .HasOne(BE => BE.Client)

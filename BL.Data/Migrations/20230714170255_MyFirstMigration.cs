@@ -75,12 +75,12 @@ namespace BL.Data.Migrations
                     BLId = table.Column<Guid>(nullable: false),
                     NumBL = table.Column<int>(nullable: false),
                     NumBE = table.Column<int>(nullable: false),
-                    DateBE = table.Column<int>(nullable: false),
+                    DateBE = table.Column<DateTime>(nullable: false),
                     Chauffeur = table.Column<string>(nullable: true),
                     NumPlombage = table.Column<string>(nullable: true),
                     TypeBL = table.Column<string>(nullable: true),
                     Status = table.Column<bool>(nullable: false),
-                    DateLivraison = table.Column<string>(nullable: true),
+                    DateLivraison = table.Column<DateTime>(nullable: false),
                     BEId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
