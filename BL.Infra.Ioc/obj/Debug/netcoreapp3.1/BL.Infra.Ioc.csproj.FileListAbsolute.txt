@@ -14,7 +14,6 @@ C:\Users\akram\Desktop\BL\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.c
 C:\Users\akram\Desktop\BL\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.dll
 C:\Users\akram\Desktop\BL\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.pdb
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.csproj.AssemblyReference.cache
-C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.AssemblyInfoInputs.cache
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.AssemblyInfo.cs
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.csproj.CoreCompileInputs.cache
@@ -27,3 +26,4 @@ C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\bin\Debug\netcoreapp3.1\BL
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\bin\Debug\netcoreapp3.1\BL.Domain.dll
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\bin\Debug\netcoreapp3.1\BL.Data.pdb
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\bin\Debug\netcoreapp3.1\BL.Domain.pdb
+C:\Users\Akram\Desktop\BonDeLivraison\BL\BL.Infra.Ioc\obj\Debug\netcoreapp3.1\BL.Infra.Ioc.csproj.CopyComplete

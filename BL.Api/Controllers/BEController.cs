@@ -72,9 +72,69 @@ namespace BL.Api.Controllers
             var GenericHandler = new RemoveGenericHandler<Domain.Models.BE>(Repository);
             return await GenericHandler.Handle(x, cancellation);
         }
+        [HttpGet("GetBeByState")]
+
+        public BeByState GetBeByState()
+        {
+            BeByState bbs = new BeByState();
+            bbs.State = new List<Boolean>();
+            bbs.Bes = new List<int>();
+            BeByState State = new BeByState();
 
 
+            IEnumerable<BE> Be = (new GetListGenericHandler<Domain.Models.BE>(Repository).Handle(new GetListGenericQuery<Domain.Models.BE>(null, null), cancellation).Result);
+            
+                var t = 0;
+                var f = 0;
+            bbs.State.Add(true);
+            foreach (var be in Be)
+                {
+                    if (be.Status == true)
+                    {
+                        t++;
+                    }
+                    else
+                    {
+                        f++;
+                    }
+                }
+                bbs.Bes.Add(t);
+            bbs.State.Add(false);
+            bbs.Bes.Add(f);
+            return bbs;
+        }
 
-        
+        [HttpGet("GetBeByStateByCenter")]
+
+        public BeByState GetBeByStateByCenter(Guid centerId)
+        {
+            BeByState bbs = new BeByState();
+            bbs.State = new List<Boolean>();
+            bbs.Bes = new List<int>();
+            BeByState State = new BeByState();
+            IEnumerable<BE> Be = (new GetListGenericHandler<Domain.Models.BE>(Repository).Handle(new GetListGenericQuery<Domain.Models.BE>(null, null), cancellation).Result);
+            var t = 0;
+            var f = 0;
+            bbs.State.Add(true);
+            foreach (var be in Be)
+            {
+                if (centerId == be.CenterId)
+                {
+                    if (be.Status == true)
+                    {
+                        t++;
+                    }
+                    else
+                    {
+                        f++;
+                    }
+                }
+            }
+            bbs.Bes.Add(t);
+            bbs.State.Add(false);
+            bbs.Bes.Add(f);
+            return bbs;
+        }
+
     }
 }

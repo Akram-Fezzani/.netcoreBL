@@ -9,7 +9,6 @@ C:\Users\akram\Desktop\BL\BL\BL.Domain\obj\Debug\netcoreapp3.1\BL.Domain.csproj.
 C:\Users\akram\Desktop\BL\BL\BL.Domain\obj\Debug\netcoreapp3.1\BL.Domain.dll
 C:\Users\akram\Desktop\BL\BL\BL.Domain\obj\Debug\netcoreapp3.1\BL.Domain.pdb
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Domain\obj\Debug\netcoreapp3.1\BL.Domain.csproj.AssemblyReference.cache
-C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Domain\obj\Debug\netcoreapp3.1\BL.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Domain\obj\Debug\netcoreapp3.1\BL.Domain.AssemblyInfoInputs.cache
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Domain\obj\Debug\netcoreapp3.1\BL.Domain.AssemblyInfo.cs
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Domain\obj\Debug\netcoreapp3.1\BL.Domain.csproj.CoreCompileInputs.cache

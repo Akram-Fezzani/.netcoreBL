@@ -45,7 +45,7 @@ namespace BL.Api.Controllers
         [HttpGet("GetBL")]
         public Domain.Models.BLs getBLById(Guid Id)
         {
-            return (new GetGenericHandler<Domain.Models.BLs>(Repository).Handle(new GetGenericQuery<Domain.Models.BLs>(condition: x => x.BLId == Id, null), cancellation).Result);
+            return (new GetGenericHandler<Domain.Models.BLs>(Repository).Handle(new GetGenericQuery<Domain.Models.BLs>(condition: x => x.BLsId == Id, null), cancellation).Result);
         }
 
 
@@ -81,6 +81,38 @@ namespace BL.Api.Controllers
             var x = new RemoveGenericCommand<Domain.Models.BLs>(Id);
             var GenericHandler = new RemoveGenericHandler<Domain.Models.BLs>(Repository);
             return await GenericHandler.Handle(x, cancellation);
+        }
+
+        [HttpGet("GetBeByStateByCenter")]
+
+        public BlByState GetBeByStateByCenter(Guid centerId)
+        {
+            BlByState bbs = new BlByState();
+            bbs.State = new List<Boolean>();
+            bbs.Bls = new List<int>();
+            BlByState State = new BlByState();
+            IEnumerable<Domain.Models.BLs> Bl = (new GetListGenericHandler<Domain.Models.BLs>(Repository).Handle(new GetListGenericQuery<Domain.Models.BLs>(null, null), cancellation).Result);
+            var t = 0;
+            var f = 0;
+            bbs.State.Add(true);
+            foreach (var bl in Bl)
+            {
+                if (centerId == bl.CenterId)
+                {
+                    if (bl.Status == true)
+                    {
+                        t++;
+                    }
+                    else
+                    {
+                        f++;
+                    }
+                }
+            }
+            bbs.Bls.Add(t);
+            bbs.State.Add(false);
+            bbs.Bls.Add(f);
+            return bbs;
         }
     }
 }

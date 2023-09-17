@@ -156,7 +156,6 @@ C:\Users\akram\Desktop\BL\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.dll
 C:\Users\akram\Desktop\BL\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.pdb
 C:\Users\akram\Desktop\BL\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.genruntimeconfig.cache
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.csproj.AssemblyReference.cache
-C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.AssemblyInfoInputs.cache
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.AssemblyInfo.cs
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.csproj.CoreCompileInputs.cache
@@ -310,7 +309,6 @@ C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\bin\Debug\netcoreapp3.1\BL.Infra
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\bin\Debug\netcoreapp3.1\BL.Domain.pdb
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\staticwebassets\BL.Api.StaticWebAssets.Manifest.cache
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\staticwebassets\BL.Api.StaticWebAssets.xml
-C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\scopedcss\bundle\BL.Api.styles.css
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.RazorTargetAssemblyInfo.cache
-C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.genruntimeconfig.cache
 C:\Users\akram\Desktop\BonDeLivraison\BL\BL.Api\obj\Debug\netcoreapp3.1\BL.Api.csproj.CopyComplete
+C:\Users\Akram\Desktop\BonDeLivraison\BL\BL.Api\bin\Debug\netcoreapp3.1\Properties\launchSettings.json

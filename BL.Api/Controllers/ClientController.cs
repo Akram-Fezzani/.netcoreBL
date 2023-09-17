@@ -79,5 +79,24 @@ namespace BL.Api.Controllers
             var GenericHandler = new RemoveGenericHandler<Client>(Repository);
             return await GenericHandler.Handle(x, cancellation);
         }
+
+
+        [HttpGet("GetCammandByClient")]
+
+        public CammandByClient GetCammandByClient()
+        {
+            CammandByClient cbc = new CammandByClient();
+            cbc.client = new List<String>();
+            cbc.nbr = new List<int>();
+            IEnumerable<Client> Clients = (new GetListGenericHandler<Client>(Repository).Handle(new GetListGenericQuery<Client>(null, null), cancellation).Result);
+
+            foreach (var c in Clients)
+            {
+                cbc.client.Add(c.Nom);
+                cbc.nbr.Add(c.CommandNbr);
+            }
+          
+            return cbc;
+        }
     }
 }

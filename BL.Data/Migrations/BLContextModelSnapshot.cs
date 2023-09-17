@@ -28,6 +28,9 @@ namespace BL.Data.Migrations
                     b.Property<Guid>("BEId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("BeFK")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("CodeELV")
                         .HasColumnType("int");
 
@@ -53,8 +56,14 @@ namespace BL.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Chauffeur")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("BlId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CenterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ChauffeurId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ClientId")
                         .HasColumnType("uniqueidentifier");
@@ -77,6 +86,9 @@ namespace BL.Data.Migrations
                     b.Property<string>("TypeBE")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("VehiculeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("BEId");
 
                     b.HasIndex("ClientId");
@@ -86,10 +98,14 @@ namespace BL.Data.Migrations
 
             modelBuilder.Entity("BL.Domain.Models.BLs", b =>
                 {
-                    b.Property<Guid>("BLId")
+                    b.Property<Guid>("BLsId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("BEId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CenterId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Chauffeur")
@@ -116,7 +132,7 @@ namespace BL.Data.Migrations
                     b.Property<string>("TypeBL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BLId");
+                    b.HasKey("BLsId");
 
                     b.ToTable("BLs");
                 });
@@ -127,11 +143,17 @@ namespace BL.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("BEId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Nom")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prenom")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SocieteId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("State")
                         .HasColumnType("bit");
@@ -150,11 +172,17 @@ namespace BL.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("CommandNbr")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nom")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prenom")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SocieteId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Telephone")
                         .HasColumnType("int");
@@ -170,10 +198,16 @@ namespace BL.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("BEId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Matricule")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Proprietaire")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SocieteId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("State")
@@ -192,24 +226,15 @@ namespace BL.Data.Migrations
                     b.HasOne("BL.Domain.Models.BE", "BE")
                         .WithMany("Articles")
                         .HasForeignKey("BEId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("BL.Domain.Models.BE", b =>
                 {
-                    b.HasOne("BL.Domain.Models.Client", "Client")
+                    b.HasOne("BL.Domain.Models.Client", null)
                         .WithMany("BEs")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BL.Domain.Models.BLs", b =>
-                {
-                    b.HasOne("BL.Domain.Models.BE", "BE")
-                        .WithOne("Bl")
-                        .HasForeignKey("BL.Domain.Models.BLs", "BLId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

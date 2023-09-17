@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BL.Domain.Models
 {
-   public class Vehicule
+    public class Vehicule
     {
         public Guid VehiculeId { get; set; }
         public String Matricule { get; set; }
@@ -12,6 +12,9 @@ namespace BL.Domain.Models
         public int capacite { get; set; }
         public Boolean State { get; set; }
 
+        public Guid SocieteId { get; set; }
+
+        public Guid BEId { get; set; }
 
 
     }

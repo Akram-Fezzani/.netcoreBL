@@ -7,9 +7,9 @@ using System.Text.Json.Serialization;
 
 namespace BL.Domain.Models
 {
-   public class BLs
+    public class BLs
     {
-        public Guid BLId { get; set; }
+        public Guid BLsId { get; set; }
         public int NumBL { get; set; }
         public int NumBE { get; set; }
         [DataType(DataType.Date)]
@@ -22,6 +22,6 @@ namespace BL.Domain.Models
         public DateTime DateLivraison { get; set; }
         [JsonIgnore]
         public Guid BEId { get; set; }
-        public BE BE { get; set; }
+        public Guid CenterId { get; set; }
     }
 }

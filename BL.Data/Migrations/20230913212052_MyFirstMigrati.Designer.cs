@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BL.Data.Migrations
 {
     [DbContext(typeof(BLContext))]
-    [Migration("20230714170255_MyFirstMigration")]
-    partial class MyFirstMigration
+    [Migration("20230913212052_MyFirstMigrati")]
+    partial class MyFirstMigrati
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace BL.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("BEId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BeFK")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("CodeELV")
@@ -55,8 +58,14 @@ namespace BL.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Chauffeur")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("BlId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CenterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ChauffeurId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ClientId")
                         .HasColumnType("uniqueidentifier");
@@ -79,6 +88,9 @@ namespace BL.Data.Migrations
                     b.Property<string>("TypeBE")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("VehiculeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("BEId");
 
                     b.HasIndex("ClientId");
@@ -88,10 +100,14 @@ namespace BL.Data.Migrations
 
             modelBuilder.Entity("BL.Domain.Models.BLs", b =>
                 {
-                    b.Property<Guid>("BLId")
+                    b.Property<Guid>("BLsId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("BEId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CenterId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Chauffeur")
@@ -118,9 +134,38 @@ namespace BL.Data.Migrations
                     b.Property<string>("TypeBL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("BLId");
+                    b.HasKey("BLsId");
 
                     b.ToTable("BLs");
+                });
+
+            modelBuilder.Entity("BL.Domain.Models.Chauffeur", b =>
+                {
+                    b.Property<Guid>("ChauffeurId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BEId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prenom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SocieteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Telephone")
+                        .HasColumnType("int");
+
+                    b.HasKey("ChauffeurId");
+
+                    b.ToTable("Chauffeurs");
                 });
 
             modelBuilder.Entity("BL.Domain.Models.Client", b =>
@@ -129,11 +174,17 @@ namespace BL.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("CommandNbr")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nom")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prenom")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SocieteId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Telephone")
                         .HasColumnType("int");
@@ -143,29 +194,49 @@ namespace BL.Data.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("BL.Domain.Models.Vehicule", b =>
+                {
+                    b.Property<Guid>("VehiculeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BEId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Matricule")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Proprietaire")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SocieteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("capacite")
+                        .HasColumnType("int");
+
+                    b.HasKey("VehiculeId");
+
+                    b.ToTable("Vehicules");
+                });
+
             modelBuilder.Entity("BL.Domain.Models.Article", b =>
                 {
                     b.HasOne("BL.Domain.Models.BE", "BE")
                         .WithMany("Articles")
                         .HasForeignKey("BEId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("BL.Domain.Models.BE", b =>
                 {
-                    b.HasOne("BL.Domain.Models.Client", "Client")
+                    b.HasOne("BL.Domain.Models.Client", null)
                         .WithMany("BEs")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BL.Domain.Models.BLs", b =>
-                {
-                    b.HasOne("BL.Domain.Models.BE", "BE")
-                        .WithOne("Bl")
-                        .HasForeignKey("BL.Domain.Models.BLs", "BLId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
