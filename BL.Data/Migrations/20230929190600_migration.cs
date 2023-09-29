@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BL.Data.Migrations
 {
-    public partial class MyFirstMigrati : Migration
+    public partial class migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -111,28 +111,23 @@ namespace BL.Data.Migrations
                 columns: table => new
                 {
                     ArticleId = table.Column<Guid>(nullable: false),
-                    HSC = table.Column<int>(nullable: false),
-                    CodeGb = table.Column<int>(nullable: false),
-                    CodeELV = table.Column<int>(nullable: false),
-                    LibArticle = table.Column<string>(nullable: true),
-                    BeFK = table.Column<Guid>(nullable: false),
-                    BEId = table.Column<Guid>(nullable: false)
+                    Fk_BE = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Articles", x => x.ArticleId);
                     table.ForeignKey(
-                        name: "FK_Articles_BEs_BEId",
-                        column: x => x.BEId,
+                        name: "FK_Articles_BEs_Fk_BE",
+                        column: x => x.Fk_BE,
                         principalTable: "BEs",
                         principalColumn: "BEId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Articles_BEId",
+                name: "IX_Articles_Fk_BE",
                 table: "Articles",
-                column: "BEId");
+                column: "Fk_BE");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BEs_ClientId",

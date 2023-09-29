@@ -35,20 +35,24 @@ namespace BL.Data.Context
            // .OnDelete(DeleteBehavior.Cascade);
 
 
-            modelBuilder.Entity<BE>()
+         /*   modelBuilder.Entity<BE>()
     .HasMany(be => be.Articles)
     .WithOne(article => article.BE)
         .IsRequired()
         .OnDelete(DeleteBehavior.Restrict);
 
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);*/
 
 
 
+            modelBuilder.Entity<Article>()
+                      .HasOne(e => e.BE)
+                       .WithMany(c => c.Articles)
+                       .HasForeignKey(c => c.Fk_BE);
 
-            
 
 
+           
         }
 
 

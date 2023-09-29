@@ -25,27 +25,12 @@ namespace BL.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BEId")
+                    b.Property<Guid>("Fk_BE")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("BeFK")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("CodeELV")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CodeGb")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HSC")
-                        .HasColumnType("int");
-
-                    b.Property<string>("LibArticle")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ArticleId");
 
-                    b.HasIndex("BEId");
+                    b.HasIndex("Fk_BE");
 
                     b.ToTable("Articles");
                 });
@@ -225,8 +210,8 @@ namespace BL.Data.Migrations
                 {
                     b.HasOne("BL.Domain.Models.BE", "BE")
                         .WithMany("Articles")
-                        .HasForeignKey("BEId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("Fk_BE")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 

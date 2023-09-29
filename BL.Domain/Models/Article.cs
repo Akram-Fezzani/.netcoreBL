@@ -9,12 +9,8 @@ namespace BL.Domain.Models
     public class Article
     {
         public Guid ArticleId { get; set; }
-        public int HSC { get; set; }
-        public int CodeGb { get; set; }
-        public int CodeELV { get; set; }
-        public String LibArticle { get; set; }
-        [ForeignKey("BeFK")]
-        public Guid BeFK { get; set; }
+
+        public Guid Fk_BE { get; set; }
         public BE BE { get; set; }
 
     }

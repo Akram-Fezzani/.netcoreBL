@@ -18,6 +18,7 @@ namespace BL.Domain.Models
         public Boolean Status { get; set; }
         public Guid ClientId { get; set; }
         public ICollection<Article> Articles { get; set; }
+
         public Guid BlId { get; set; }
         public Guid VehiculeId { get; set; }
         public Guid ChauffeurId { get; set; }
